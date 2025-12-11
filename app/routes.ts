@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 // Route file paths are relative to the app directory (./app)
@@ -5,3 +6,8 @@ export default [
   index("routes/home.tsx"),
   route("auth", "routes/auth.tsx"),
 ] satisfies RouteConfig;
+=======
+import { type RouteConfig, index } from "@react-router/dev/routes";
+
+export default [index("routes/home.tsx")] satisfies RouteConfig;
+>>>>>>> 444b805647ffab956e52deb8331e273562d8da2c

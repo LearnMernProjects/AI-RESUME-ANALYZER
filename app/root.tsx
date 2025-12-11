@@ -6,8 +6,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+<<<<<<< HEAD
 import { usePuterStore } from "./lib/puter";
 import { useEffect } from "react";
+=======
+
+>>>>>>> 444b805647ffab956e52deb8331e273562d8da2c
 import type { Route } from "./+types/root";
 import "./app.css";
 
@@ -25,10 +29,13 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+<<<<<<< HEAD
   const {init} = usePuterStore();
   useEffect(() => {
     init()
   }, [init]);
+=======
+>>>>>>> 444b805647ffab956e52deb8331e273562d8da2c
   return (
     <html lang="en">
       <head>
@@ -38,8 +45,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+<<<<<<< HEAD
       <script src="https://js.puter.com/v2/"></script>
 
+=======
+>>>>>>> 444b805647ffab956e52deb8331e273562d8da2c
         {children}
         <ScrollRestoration />
         <Scripts />
