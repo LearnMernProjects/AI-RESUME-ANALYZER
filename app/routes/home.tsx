@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client";
 import type { MetaFunction } from "react-router";
 import Navbar from "~/components/Navbar";
@@ -43,7 +42,7 @@ export default function Home() {
         location.pathname !== redirectTo
       ) {
         hasRedirected.current = true;
-        navigate("/auth?next=/");
+        navigate("/dashboard", { replace: true });
       }
     }, [
       auth.isAuthenticated,
@@ -75,18 +74,4 @@ export default function Home() {
     </section>
     </main>
   );
-=======
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
-
-export default function Home() {
-  return <Welcome />;
->>>>>>> 444b805647ffab956e52deb8331e273562d8da2c
 }
