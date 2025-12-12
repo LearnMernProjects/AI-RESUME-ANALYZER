@@ -336,6 +336,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
       return;
     }
 
+    // Use a currently available model; previous default (claude-sonnet) is unavailable
     return puter.ai.chat(
       [
         {
@@ -352,7 +353,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
           ],
         },
       ],
-      { model: "claude-sonnet-4" }
+      { model: "claude-sonnet-4.5" }
     ) as Promise<AIResponse | undefined>;
   };
 
