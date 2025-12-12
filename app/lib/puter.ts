@@ -1,6 +1,9 @@
 "use client";
 import { create } from "zustand";
 
+// Re-exported type so consumers can type feedback data consistently
+export type Feedback = Resume["feedback"];
+
 
 declare global {
   interface Window {

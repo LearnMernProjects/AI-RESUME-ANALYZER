@@ -100,6 +100,8 @@ setFile(file)
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText("Analyzing complete redirecting")
         console.log(data);
+        // Use actual UUID value in the route so the resume page can load data
+        navigate(`/resume/${uuid}`);
         } catch (err) {
             const message =
               err instanceof Error
