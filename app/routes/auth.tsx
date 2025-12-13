@@ -22,7 +22,12 @@ const auth = () => {
   const next= location.search.split('next=')[1];
  
   const hasRedirected = useRef(false);
-  const redirectTo = (location.state as { from: string } | null)?.from || "/";
+  const redirectTo = next || (location.state as { from: string } | null)?.from || "/";
+
+  const handleLogout = async () => {
+    await auth.signOut();
+    navigate("/", { replace: true });
+  };
 
 
   useEffect(() => {
@@ -71,10 +76,10 @@ const auth = () => {
             ) : (
               <>
                 {auth.isAuthenticated ? (
-                  <button className='auth-button' onClick={auth.signOut}>Log Out</button>
+                  <button className='auth-button' onClick={handleLogout}>Log Out</button>
                 ) : (
               
-                  <button className='auth-button' onClick={auth.signIn}><p>Signing you in....</p></button>
+                  <button className='auth-button' onClick={auth.signIn}><p>Sign In</p></button>
                 )}
               </>
             )}

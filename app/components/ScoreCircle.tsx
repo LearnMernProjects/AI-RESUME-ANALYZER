@@ -1,9 +1,10 @@
-const ScoreCircle = ({ score = 75 }: { score: number }) => {
+const ScoreCircle = ({ score = 0 }: { score?: number }) => {
+     const validScore = score ?? 0;
      const radius = 40;
      const stroke = 8;
      const normalizedRadius = radius - stroke / 2;
      const circumference = 2 * Math.PI * normalizedRadius;
-     const progress = score / 100;
+     const progress = validScore / 100;
      const strokeDashoffset = circumference * (1 - progress);
    
      return (
@@ -45,7 +46,7 @@ const ScoreCircle = ({ score = 75 }: { score: number }) => {
    
          {/* Score and issues */}
          <div className="absolute inset-0 flex flex-col items-center justify-center">
-           <span className="font-semibold text-sm">{`${score}/100`}</span>
+           <span className="font-semibold text-sm">{`${validScore}/100`}</span>
          </div>
        </div>
      );

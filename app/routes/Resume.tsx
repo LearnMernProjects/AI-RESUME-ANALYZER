@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router';
 import { usePuterStore, type Feedback } from '~/lib/puter';
 import type { PdfConversionResult } from '~/lib/pdf2image';
-
+import Summary from '~/components/Summary';
+import ATS from '~/components/ATS';
+import Details from '~/components/Details';
+import { score } from '~/components/ATS';
 export const meta = () => [
     { title: "Resumind | Review" },
     { name: "description", content: "Log onto your account" },
@@ -61,30 +64,29 @@ const Resume = () => {
                     </span>
                 </Link>
             </nav>
-            <div className='flex flex-row w-full max-lg:flex-col-reverse justify-center items-center'>
-                <section className="feedback-section bg-[url('/images/bg-small.svg')] bg-cover h-screen sticky top-0 flex items-center justify-center">
-                <section className='feedback-section'>
-                    <h2 className='text-4xl `!text-black ` font-bold'> Resume Review</h2>
+            <div className='flex flex-col lg:flex-row w-full gap-4 lg:gap-6 p-4 lg:p-6'>
+                <section className="flex-1 min-w-0">
+                <section className='bg-white rounded-2xl shadow-md p-6 space-y-6'>
+                    <h2 className='text-2xl lg:text-4xl font-bold text-black'> Resume Review</h2>
                     {feedback ?(
-                         <div className='flex flex-col gap-8 animate-in fade-in duration-1000 '>
+                         <div className='flex flex-col gap-6 lg:gap-8 animate-in fade-in duration-1000 '>
                           <Summary feedback={feedback}/>
-                          <ATS score= {feedback.ATS.score || 0} suggestions={feedback.ATS.tips || []}/>
-                          <Details feedback ={feedback}/>
+                          <ATS score={feedback?.ATS?.score || 0} suggestions={feedback?.ATS?.tips || []}/>
+                          <Details feedback={feedback}/>
 
                          </div>) :(
                               <img src="/images/resume-scan-2.gif" className='w-full'/>
                          
                     )}
                 </section>
+                </section>
                     {imageUrl && resumeUrl && (
-                        <div className='animate-in fade-in duration-1000 gradient-border max-wxl:h-fit w-fit flex items-center justify-center'>
-                         <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
+                        <div className='animate-in fade-in duration-1000 gradient-border flex-1 min-w-0 flex items-center justify-center'>
+                         <a href={resumeUrl} target="_blank" rel="noopener noreferrer" className='w-full h-full block'>
                               <img src={imageUrl} className='w-full h-full object-contain rounded-2xl' title="resume"/>
                          </a>
-                           {/* Content goes here */}
                         </div>
                     )}
-                </section>
             </div>
           
         </main>
