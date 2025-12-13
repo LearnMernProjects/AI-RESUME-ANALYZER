@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import type { Feedback } from '~/lib/puter';
-
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from '~/components/Accordion';
 interface DetailsProps {
   feedback: Feedback;
 }
